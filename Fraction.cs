@@ -52,93 +52,6 @@ namespace RationFraction
             }
         }
 
-        public Fraction()
-        {
-            intPart = 0;
-            numerator = 0;
-            denominator = 1;
-            sign = 1;
-        }
-
-        // деструктор
-        ~Fraction()
-        {
-            Console.WriteLine("Дробь " + this + " уничтожена.");
-        }
-
-        // деструктор должен относиться к закрытым элементам класса 
-        public Fraction(int sign, int intPart, int numerator, int denominator)
-        {
-            this.sign = sign;
-            this.intPart = intPart;
-            this.numerator = numerator;
-            this.denominator = denominator;
-            GetMixedView();
-        }
-
-        // метод сложения дробей 
-        public static Fraction operator +(Fraction obj1, Fraction obj2)
-        {
-            Fraction temp = new Fraction();
-            temp.numerator = obj1.sign * (obj1.intPart * obj1.denominator +
-                                          obj1.numerator) * obj2.denominator + obj2.sign * (obj2.intPart *
-                obj2.denominator + obj2.numerator) * obj1.denominator;
-            temp.denominator = obj1.denominator * obj2.denominator;
-
-            if (temp.numerator < 0)
-            {
-                temp.numerator *= -1;
-                temp.sign = -1;
-            }
-
-            temp.GetMixedView();
-            return temp;
-        }
-
-        // метод сложения числа с дробью 
-        public static Fraction operator +(int a, Fraction obj)
-        {
-            if (a == 0)
-                return new Fraction(obj.numerator, obj.denominator,
-                    obj.intPart, obj.sign);
-            Fraction obj2 = new Fraction(0, 1, Math.Abs(a), a / Math.Abs(a));
-            Fraction res = obj + obj2;
-            return res;
-        }
-
-        public static bool operator >(Fraction obj1, Fraction obj2)
-        {
-            return !((double) obj1 <= (double) obj2);
-        }
-
-        public static bool operator <(Fraction obj1, Fraction obj2)
-        {
-            return !((double) obj1 >= (double) obj2);
-        }
-
-        public static bool operator ==(Fraction obj1, Fraction obj2)
-        {
-            return !(obj1.sign != obj2.sign || obj1.intPart != obj2.intPart ||
-                     obj1.numerator * obj2.denominator !=
-                     obj1.denominator * obj2.numerator);
-        }
-
-        public static bool operator !=(Fraction obj1, Fraction obj2)
-        {
-            return !(obj1.sign == obj2.sign) || !(obj1.intPart == obj2.intPart) ||
-                   !(obj1.numerator * obj2.denominator ==
-                     obj1.denominator * obj2.numerator);
-        }
-
-        public static bool operator >=(Fraction obj1, Fraction obj2)
-        {
-            return !((double) obj1 < (double) obj2);
-        }
-
-        public static bool operator <=(Fraction obj1, Fraction obj2)
-        {
-            return !((double) obj1 > (double) obj2);
-        }
 
         public static Fraction Parse(string str)
         {
@@ -196,6 +109,104 @@ namespace RationFraction
             return res;
         }
 
+        // метод получения неправильной дроби
+        public static void Getimproperfraction(Fraction obj1)
+        {
+            if (obj1.intPart > 0)
+            {
+                obj1.numerator += obj1.intPart * obj1.denominator;
+                obj1.intPart = 0;
+            }
+        }
+
+        public Fraction()
+        {
+            intPart = 0;
+            numerator = 0;
+            denominator = 1;
+            sign = 1;
+        }
+
+        // деструктор
+        ~Fraction()
+        {
+            Console.WriteLine("Дробь " + this + " уничтожена.");
+        }
+
+        // деструктор должен относиться к закрытым элементам класса 
+        public Fraction(int sign, int intPart, int numerator, int denominator)
+        {
+            this.sign = sign;
+            this.intPart = intPart;
+            this.numerator = numerator;
+            this.denominator = denominator;
+            GetMixedView();
+        }
+
+        // метод сложения дробей 
+        public static Fraction operator +(Fraction obj1, Fraction obj2)
+        {
+            Fraction temp = new Fraction();
+            temp.numerator = obj1.sign * (obj1.intPart * obj1.denominator +
+                                          obj1.numerator) * obj2.denominator + obj2.sign * (obj2.intPart *
+                obj2.denominator + obj2.numerator) * obj1.denominator;
+            temp.denominator = obj1.denominator * obj2.denominator;
+
+            if (temp.numerator < 0)
+            {
+                temp.numerator *= -1;
+                temp.sign = -1;
+            }
+
+            temp.GetMixedView();
+            return temp;
+        }
+
+        // метод сложения числа с дробью 
+        public static Fraction operator +(int a, Fraction obj)
+        {
+            if (a == 0)
+                return obj;
+            Fraction obj2 = new Fraction(0, 1, Math.Abs(a), a / Math.Abs(a));
+            Fraction res = obj + obj2;
+            return res;
+        }
+
+        public static bool operator >(Fraction obj1, Fraction obj2)
+        {
+            return !((double) obj1 <= (double) obj2);
+        }
+
+        public static bool operator <(Fraction obj1, Fraction obj2)
+        {
+            return !((double) obj1 >= (double) obj2);
+        }
+
+        public static bool operator ==(Fraction obj1, Fraction obj2)
+        {
+            return !(obj1.sign != obj2.sign || obj1.intPart != obj2.intPart ||
+                     obj1.numerator * obj2.denominator !=
+                     obj1.denominator * obj2.numerator);
+        }
+
+        public static bool operator !=(Fraction obj1, Fraction obj2)
+        {
+            return !(obj1.sign == obj2.sign) || !(obj1.intPart == obj2.intPart) ||
+                   !(obj1.numerator * obj2.denominator ==
+                     obj1.denominator * obj2.numerator);
+        }
+
+        public static bool operator >=(Fraction obj1, Fraction obj2)
+        {
+            return !((double) obj1 < (double) obj2);
+        }
+
+        public static bool operator <=(Fraction obj1, Fraction obj2)
+        {
+            return !((double) obj1 > (double) obj2);
+        }
+
+
         public static implicit operator string(Fraction obj)
         {
             string res = "";
@@ -210,15 +221,6 @@ namespace RationFraction
             return res;
         }
 
-        // метод получения неправильной дроби
-        public static void Getimproperfraction(Fraction obj1)
-        {
-            if (obj1.intPart > 0)
-            {
-                obj1.numerator += obj1.intPart * obj1.denominator;
-                obj1.intPart = 0;
-            }
-        }
 
         // метод умножения дробей 
         public static Fraction operator *(Fraction obj1, Fraction obj2)
@@ -309,11 +311,11 @@ namespace RationFraction
         {
         }
 
-        // превращение в дробь
-        public static explicit operator double(Fraction obj)
+        // операция преобразования дроби в тип double
+        public static explicit operator double(Fraction ob)
         {
-            Getimproperfraction(obj);
-            return obj.sign > 0 ? obj.numerator / obj.denominator : -obj.numerator / obj.denominator;
+            return (double) ob.sign * (ob.intPart * ob.denominator +
+                                       ob.numerator) / ob.denominator;
         }
     }
 }
