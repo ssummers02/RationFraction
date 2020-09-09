@@ -105,7 +105,8 @@ namespace RationFraction
             Fraction res = obj + obj2;
             return res;
         }
-  public static bool operator >(Fraction obj1, Fraction obj2)
+
+        public static bool operator >(Fraction obj1, Fraction obj2)
         {
             return !((double) obj1 <= (double) obj2);
         }
@@ -208,22 +209,91 @@ namespace RationFraction
                 res = "0";
             return res;
         }
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+
+        // метод получения неправильной дроби
+        public static void Getimproperfraction(Fraction obj1)
+        {
+            if (obj1.intPart > 0)
+            {
+                obj1.numerator += obj1.intPart * obj1.denominator;
+                obj1.intPart = 0;
+            }
+        }
+
+        // метод умножения дробей 
+        public static Fraction operator *(Fraction obj1, Fraction obj2)
+        {
+            Fraction temp = new Fraction();
+            Getimproperfraction(obj1);
+            Getimproperfraction(obj2);
+            temp.numerator = obj1.numerator * obj2.numerator;
+            temp.denominator = obj1.denominator * obj2.denominator;
+            if (obj1.sign < 0 || obj2.sign < 0)
+                temp.sign = -1;
+            temp.GetMixedView();
+            return temp;
+        }
+
+        // метод умножения числа с дробью 
+        public static Fraction operator *(int n, Fraction obj1)
+        {
+            Fraction temp = new Fraction();
+            Getimproperfraction(obj1);
+            temp.numerator = obj1.numerator * n;
+            temp.denominator = obj1.denominator;
+            if (obj1.sign < 0 || n < 0)
+                temp.sign = -1;
+            temp.GetMixedView();
+            return temp;
+        }
+
+        // метод деления дробей 
+        public static Fraction operator /(Fraction obj1, Fraction obj2)
+        {
+            Fraction temp = new Fraction();
+            Getimproperfraction(obj1);
+            Getimproperfraction(obj2);
+            temp.numerator = obj1.numerator * obj2.denominator;
+            temp.denominator = obj1.denominator * obj2.numerator;
+            if (obj1.sign < 0 || obj2.sign < 0)
+                temp.sign = -1;
+            temp.GetMixedView();
+            return temp;
+        }
+
+        // метод деления числа на дробью 
+        public static Fraction operator /(int n, Fraction obj1)
+        {
+            Fraction temp = new Fraction();
+            Getimproperfraction(obj1);
+            temp.numerator = obj1.denominator * n;
+            temp.denominator = obj1.numerator;
+            if (obj1.sign < 0 || n < 0)
+                temp.sign = -1;
+            temp.GetMixedView();
+            return temp;
+        }
+
+        // изменнение знака дроби на противоположный
+        public static Fraction operator -(Fraction obj1)
+        {
+            obj1.sign *= -1;
+            return obj1;
+        }
+
+        // метод дробь на число
+        public static Fraction operator /(Fraction obj1, int n)
+        {
+            Fraction temp = new Fraction();
+            Getimproperfraction(obj1);
+            temp.numerator = obj1.denominator;
+            temp.denominator = obj1.numerator * n;
+            if (obj1.sign < 0 || n < 0)
+                temp.sign = -1;
+            temp.GetMixedView();
+            return temp;
+        }
+
         // метод вычитания дробей 
         public static Fraction operator -(Fraction obj1, Fraction obj2)
         {
@@ -239,42 +309,11 @@ namespace RationFraction
         {
         }
 
-
-        // метод умножения дробей 
-        public static Fraction operator *(Fraction obj1, Fraction obj2)
-        {
-        }
-
-        // метод умножения числа с дробью 
-        public static Fraction operator *(int n, Fraction obj)
-        {
-        }
-
-        // метод деления дробей 
-        public static Fraction operator /(Fraction obj1, Fraction obj2)
-        {
-        }
-
-        // метод деления числа на дробью 
-        public static Fraction operator /(int n, Fraction obj)
-        {
-        }
-
-        // метод дробь на число
-        public static Fraction operator /(Fraction obj, int n)
-        {
-        }
-
-        // изменнение знака дроби на противоположный
-        public static Fraction operator -(Fraction obj1)
-        {
-        }
-
         // превращение в дробь
         public static explicit operator double(Fraction obj)
         {
+            Getimproperfraction(obj);
+            return obj.sign > 0 ? obj.numerator / obj.denominator : -obj.numerator / obj.denominator;
         }
-
-      
     }
 }
