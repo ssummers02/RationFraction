@@ -172,6 +172,15 @@ namespace RationFraction
             return res;
         }
 
+        public static Fraction operator +(Fraction obj, int a)
+        {
+            if (a == 0)
+                return obj;
+            Fraction obj2 = new Fraction(0, 1, Math.Abs(a), a / Math.Abs(a));
+            Fraction res = obj + obj2;
+            return res;
+        }
+
         public static bool operator >(Fraction obj1, Fraction obj2)
         {
             return !((double) obj1 <= (double) obj2);
@@ -184,16 +193,13 @@ namespace RationFraction
 
         public static bool operator ==(Fraction obj1, Fraction obj2)
         {
-            return !(obj1.sign != obj2.sign || obj1.intPart != obj2.intPart ||
-                     obj1.numerator * obj2.denominator !=
-                     obj1.denominator * obj2.numerator);
+            return obj1.sign == obj2.sign && obj1.intPart == obj2.intPart && obj1.numerator == obj2.numerator &&
+                   obj1.denominator == obj2.denominator;
         }
 
         public static bool operator !=(Fraction obj1, Fraction obj2)
         {
-            return !(obj1.sign == obj2.sign) || !(obj1.intPart == obj2.intPart) ||
-                   !(obj1.numerator * obj2.denominator ==
-                     obj1.denominator * obj2.numerator);
+            return !(obj1 == obj2);
         }
 
         public static bool operator >=(Fraction obj1, Fraction obj2)
@@ -299,16 +305,19 @@ namespace RationFraction
         // метод вычитания дробей 
         public static Fraction operator -(Fraction obj1, Fraction obj2)
         {
+            return obj1 + -obj2;
         }
 
         // метод вычитания из дроби
         public static Fraction operator -(Fraction obj, int n)
         {
+            return obj + -n;
         }
 
         // метод вычитания дроби из числа
         public static Fraction operator -(int n, Fraction obj)
         {
+            return n + -obj;
         }
 
         // операция преобразования дроби в тип double

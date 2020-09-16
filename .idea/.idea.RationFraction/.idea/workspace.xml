@@ -11,6 +11,7 @@
     <list default="true" id="324e9f37-91b8-4895-819e-138e1bc0e325" name="Default Changelist" comment="commit">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.RationFraction/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RationFraction/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Fraction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Fraction.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Program.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +29,7 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/RationFraction.cs" />
+        <option value="$PROJECT_DIR$/Program.cs" />
         <option value="$PROJECT_DIR$/Fraction.cs" />
       </list>
     </option>
@@ -41,9 +43,9 @@
   <component name="PropertiesComponent">
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager">
     <configuration name="RationFraction" type="DotNetProject" factoryName=".NET Project">
@@ -78,7 +80,8 @@
       <workItem from="1599072966246" duration="1248000" />
       <workItem from="1599074370348" duration="524000" />
       <workItem from="1599578267332" duration="240000" />
-      <workItem from="1599651850662" duration="3707000" />
+      <workItem from="1599651850662" duration="4080000" />
+      <workItem from="1600256789233" duration="1164000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <created>1599653763735</created>
@@ -87,7 +90,14 @@
       <option name="project" value="LOCAL" />
       <updated>1599653763735</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="commit">
+      <created>1599656797773</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1599656797773</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -113,9 +123,29 @@
     <option name="LAST_COMMIT_MESSAGE" value="commit" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1599653883789">
+    <state width="1398" height="245" key="GridCell.Tab.0.bottom" timestamp="1600257819800">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1599653883789" />
+    <state width="1398" height="245" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1600257819800" />
+    <state width="1398" height="245" key="GridCell.Tab.0.center" timestamp="1600257819797">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="245" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1600257819797" />
+    <state width="1398" height="245" key="GridCell.Tab.0.left" timestamp="1600257819796">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="245" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1600257819796" />
+    <state width="1398" height="245" key="GridCell.Tab.0.right" timestamp="1600257819798">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="245" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1600257819798" />
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1599656799607">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1599656799607" />
+    <state x="100" y="100" width="1240" height="700" key="com.intellij.history.integration.ui.views.SelectionHistoryDialog" timestamp="1600257640292">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="100" y="100" width="1240" height="700" key="com.intellij.history.integration.ui.views.SelectionHistoryDialog/0.0.1440.900@0.0.1440.900" timestamp="1600257640292" />
   </component>
 </project>

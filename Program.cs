@@ -6,7 +6,10 @@ namespace RationFraction
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Fraction a = new Fraction(1,0,2,4);
+            Fraction b = new Fraction(1,0,3,4);
+            
+            Console.WriteLine(a-b);
         }
     }
 }
