@@ -174,11 +174,7 @@ namespace RationFraction
 
         public static Fraction operator +(Fraction obj, int a)
         {
-            if (a == 0)
-                return obj;
-            Fraction obj2 = new Fraction(0, 1, Math.Abs(a), a / Math.Abs(a));
-            Fraction res = obj + obj2;
-            return res;
+            return a + obj;
         }
 
         public static bool operator >(Fraction obj1, Fraction obj2)
