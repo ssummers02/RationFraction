@@ -69,10 +69,10 @@ namespace RationFraction
                 {
                     intPart = int.Parse(strs1[0]);
                     if (intPart != 0)
-                        res = new Fraction(0, 1, Math.Abs(intPart),
+                        res = new Fraction(1, 0, Math.Abs(intPart),
                             intPart / Math.Abs(intPart));
                     else
-                        res = new Fraction(0, 1, Math.Abs(intPart), 1);
+                        res = new Fraction(1, 0, Math.Abs(intPart), 1);
                     return res;
                 }
 
@@ -86,7 +86,7 @@ namespace RationFraction
                     sign = -1;
                 }
 
-                res = new Fraction(numerator, denominator, 0, sign);
+                res = new Fraction(sign, 0, numerator, denominator);
                 res.GetMixedView();
                 return res;
             }
@@ -104,7 +104,7 @@ namespace RationFraction
 
             numerator = int.Parse(strs1[0]);
             denominator = int.Parse(strs1[1]);
-            res = new Fraction(numerator, denominator, intPart, sign);
+            res = new Fraction(sign, intPart, numerator, denominator);
             res.GetMixedView();
             return res;
         }
@@ -167,7 +167,7 @@ namespace RationFraction
         {
             if (a == 0)
                 return obj;
-            Fraction obj2 = new Fraction(0, 1, Math.Abs(a), a / Math.Abs(a));
+            Fraction obj2 = new Fraction(1, 0, Math.Abs(a), a / Math.Abs(a));
             Fraction res = obj + obj2;
             return res;
         }
@@ -301,7 +301,8 @@ namespace RationFraction
         // метод вычитания дробей 
         public static Fraction operator -(Fraction obj1, Fraction obj2)
         {
-            return obj1 + -obj2;
+            Fraction temp = new Fraction(-obj2.sign, obj2.intPart, obj2.numerator,obj2.denominator);
+            return obj1 + temp;
         }
 
         // метод вычитания из дроби
